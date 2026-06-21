@@ -1,0 +1,50 @@
+package inicial;
+//main
+public abstract class investimento {
+        private int id;
+        private String banco;
+        private String codigo;
+        private double valorAplicado;
+
+        //construtor principal
+        public investimento(int id, String banco,String codigo, double valorAplicado) {
+            this.id = id;
+            this.banco = banco;
+            this.codigo = codigo;
+            this.valorAplicado = valorAplicado;
+        }
+
+    public int getId() {
+        return id;
+    }
+    //Getters e Setters
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getBanco() {
+        return banco;
+    }
+
+    public void setBanco(String banco) {
+        this.banco = banco;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public double getValorAplicado() {
+        return valorAplicado;
+    }
+
+    public void setValorAplicado(double valorAplicado) {
+        this.valorAplicado = valorAplicado;
+    }
+}
+
+
