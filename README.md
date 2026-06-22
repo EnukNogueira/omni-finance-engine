@@ -1,4 +1,4 @@
-# Sistema Bancário Integrado 
+# Sistema Bancário Integrado SOMATIVA 1 JAVA PUCPR
 
 Este é o projeto desenvolvido por mim para a disciplina de Programação Orientada a Objetos (Java). A proposta inicial da faculdade pedia um simulador de financiamento imobiliário, mas eu decidi ir além e integrar um pilar completo de gerenciamento de investimentos com consumo de dados reais do mercado de ações.
 
