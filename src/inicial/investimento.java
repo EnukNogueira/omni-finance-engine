@@ -13,11 +13,11 @@ public abstract class investimento {
             this.codigo = codigo;
             this.valorAplicado = valorAplicado;
         }
-
+    //Getters e Setters
     public int getId() {
         return id;
     }
-    //Getters e Setters
+
     public void setId(int id) {
         this.id = id;
     }
