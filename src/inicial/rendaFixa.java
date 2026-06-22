@@ -11,7 +11,7 @@ public class rendaFixa extends investimento{
         this.anosPassados = anosPassados;
 
     }
-
+    //Getters e Setters
     public double getTaxaAnual() {
         return taxaAnual;
     }
@@ -29,6 +29,6 @@ public class rendaFixa extends investimento{
     }
 
     public double calcularValorAtual() {
-        return getValorAplicado() * Math.pow((1 + this.taxaAnual), this.anosPassados);
+        return getValorAplicado() * Math.pow((1 + (this.taxaAnual / 100.0)), this.anosPassados);
     }
 }

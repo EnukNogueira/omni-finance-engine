@@ -1,5 +1,5 @@
 package inicial;
-//main
+
 public abstract class investimento {
         private int id;
         private String banco;

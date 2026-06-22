@@ -10,6 +10,7 @@ public class acao extends investimento{
         //variaveis
         this.quantidade = quantidade;
         this.precoAtual = precoAtual;
+
     }
     //Getters e Setters
     public int getQuantidade() {
