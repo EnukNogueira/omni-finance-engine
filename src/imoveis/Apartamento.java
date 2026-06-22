@@ -1,6 +1,6 @@
 package imoveis;
 
-public class Apartamento extends financiamento {
+public class Apartamento extends Financiamento {
 
     private int vagasGaragem;
 

@@ -1,10 +1,10 @@
 package inicial;
 //Classe Filha
-public class acao extends investimento{
+public class Acao extends Investimento {
     private int quantidade;
     private double precoAtual;
 
-    public acao(int id, String banco,String codigo, double valorAplicado, int quantidade, double precoAtual) {
+    public Acao(int id, String banco, String codigo, double valorAplicado, int quantidade, double precoAtual) {
         super(id, banco, codigo, valorAplicado);
 
         //variaveis

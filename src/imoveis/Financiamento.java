@@ -1,13 +1,13 @@
 package imoveis;
 
-public abstract class financiamento {
+public abstract class Financiamento {
 
     protected double valorImovel;
     protected int prazoFinanciamentoMeses;
     protected double taxaJurosAnual;
 
 
-    public financiamento(double valorImovel, int prazoFinanciamentoMeses, double taxaJurosAnual) throws ErrosExceptionFinanciamento {
+    public Financiamento(double valorImovel, int prazoFinanciamentoMeses, double taxaJurosAnual) throws ErrosExceptionFinanciamento {
 
         if (valorImovel <= 0) {
             throw new ErrosExceptionFinanciamento("O valor do imóvel deve ser maior que zero");

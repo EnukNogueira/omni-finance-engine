@@ -1,13 +1,13 @@
 package inicial;
 
-public abstract class investimento {
+public abstract class Investimento {
         private int id;
         private String banco;
         private String codigo;
         private double valorAplicado;
 
         //construtor principal
-        public investimento(int id, String banco,String codigo, double valorAplicado) {
+        public Investimento(int id, String banco, String codigo, double valorAplicado) {
             this.id = id;
             this.banco = banco;
             this.codigo = codigo;

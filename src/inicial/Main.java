@@ -13,8 +13,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
 
-        ArrayList<acao> listaAcoes = new ArrayList<>();
-        ArrayList<rendaFixa> listaRendaFixa = new ArrayList<>();
+        ArrayList<Acao> listaAcoes = new ArrayList<>();
+        ArrayList<RendaFixa> listaRendaFixa = new ArrayList<>();
 
         ArrayList<Casa> listaCasas = new ArrayList<>();
         ArrayList<Apartamento> listaApartamentos = new ArrayList<>();
@@ -53,10 +53,10 @@ public class Main {
                     int quantidade = leitor.nextInt(); leitor.nextLine();
 
                     System.out.println("Buscando cotação em tempo real...");
-                    double valorAtual = financeiraAPI.pegarPrecoAtual(codigo);
+                    double valorAtual = FinanceiraAPI.pegarPrecoAtual(codigo);
                     System.out.println("Cotação encontrada: R$ " + valorAtual);
 
-                    acao minhaAcao = new acao(id, banco, codigo, valorAplicado, quantidade, valorAtual);
+                    Acao minhaAcao = new Acao(id, banco, codigo, valorAplicado, quantidade, valorAtual);
                     listaAcoes.add(minhaAcao);
                     System.out.println("Cadastro da ação concluído com sucesso!");
 
@@ -76,7 +76,7 @@ public class Main {
                     System.out.println("Digite a taxa anual (ex: 10,5):");
                     double taxaAnual = leitor.nextDouble(); leitor.nextLine();
 
-                    rendaFixa minhaRendaFixa = new rendaFixa(id, banco, codigo, valorAplicado, anosPassados, taxaAnual);
+                    RendaFixa minhaRendaFixa = new RendaFixa(id, banco, codigo, valorAplicado, anosPassados, taxaAnual);
                     listaRendaFixa.add(minhaRendaFixa);
                     System.out.println("Renda Fixa cadastrada com sucesso!");
 
@@ -135,12 +135,12 @@ public class Main {
                 } else if (opcao == 6) {
                     System.out.println("-----Relatório geral-----");
                     System.out.println("\n---Carteira de ações---");
-                    for (acao a : listaAcoes) {
+                    for (Acao a : listaAcoes) {
                         System.out.println("Ativo: " + a.getCodigo() + " | Total: R$" + a.calcularValorAtual());
                     }
 
                     System.out.println("\n---Carteira de renda fixa---");
-                    for (rendaFixa rf : listaRendaFixa) {
+                    for (RendaFixa rf : listaRendaFixa) {
                         System.out.println("Título: " + rf.getCodigo() + " | Total acumulado: R$" + rf.calcularValorAtual());
                     }
 

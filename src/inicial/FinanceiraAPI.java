@@ -8,7 +8,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class financeiraAPI {
+public class FinanceiraAPI {
 //Estrutura da API
     public static double pegarPrecoAtual(String codigoAtivo) {
         String tokenTeste = "9p7bH7b6P4X9K8e2mN4qQ1";

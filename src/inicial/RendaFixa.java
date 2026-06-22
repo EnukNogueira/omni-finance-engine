@@ -1,11 +1,11 @@
 package inicial;
 
-public class rendaFixa extends investimento{
+public class RendaFixa extends Investimento {
     private double taxaAnual;
     private int anosPassados;
 
     //Construtor
-    public rendaFixa(int id, String banco,String codigo, double valorAplicado, int anosPassados, double taxaAnual) {
+    public RendaFixa(int id, String banco, String codigo, double valorAplicado, int anosPassados, double taxaAnual) {
         super(id, banco, codigo, valorAplicado);
         this.taxaAnual = taxaAnual;
         this.anosPassados = anosPassados;

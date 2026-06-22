@@ -1,5 +1,5 @@
 package imoveis;
-public class Casa extends financiamento {
+public class Casa extends Financiamento {
 
     private double areaConstruida;
 

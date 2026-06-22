@@ -1,6 +1,6 @@
 package imoveis;
 
-public class Terreno extends financiamento {
+public class Terreno extends Financiamento {
 
     private String tipoZoneamento;
 
