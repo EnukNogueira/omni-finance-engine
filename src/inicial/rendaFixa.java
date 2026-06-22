@@ -30,6 +30,5 @@ public class rendaFixa extends investimento{
 
     public double calcularValorAtual() {
         return getValorAplicado() * Math.pow((1 + this.taxaAnual), this.anosPassados);
-
     }
 }
