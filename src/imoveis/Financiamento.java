@@ -1,6 +1,6 @@
 package imoveis;
 
-public abstract class Financiamento {
+public abstract class Financiamento implements java.io.Serializable {
 
     protected double valorImovel;
     protected int prazoFinanciamentoMeses;
@@ -47,4 +47,5 @@ public abstract class Financiamento {
     public void setTaxaJurosAnual(double taxaJurosAnual) {
         this.taxaJurosAnual = taxaJurosAnual;
     }
+
 }

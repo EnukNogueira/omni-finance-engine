@@ -27,7 +27,6 @@ public class Main {
 
             try {
                 System.out.println("\nSistema Bancário");
-
                 System.out.println("1 - Cadastrar Ação (API)");
                 System.out.println("2 - Cadastrar Renda Fixa");
                 System.out.println("3 - Simular Financiamento de Casa");
@@ -114,7 +113,7 @@ public class Main {
                     System.out.println("Simulação de Apartamento salva com sucesso!");
                     System.out.printf("Valor da Parcela Mensal (com condomínio): R$ %.2f\n", novoApto.calcularPagamentoMensal());
 
-                    //Financiamento de terrenos
+                    //Financiamento de terrains
                 } else if (opcao == 5) {
                     System.out.println("\n---Simulação de Financiamento: Terreno---");
                     System.out.println("Digite o valor do imóvel (R$):");
@@ -131,7 +130,7 @@ public class Main {
                     System.out.println("Simulação de Terreno salva");
                     System.out.printf("Valor da Parcela Mensal (com taxa de risco): R$ %.2f\n", novoTerreno.calcularPagamentoMensal());
 
-                    //Relatórios
+                    //Relatórios e Persistência das Simulações
                 } else if (opcao == 6) {
                     System.out.println("-----Relatório geral-----");
                     System.out.println("\n---Carteira de ações---");
@@ -159,6 +158,66 @@ public class Main {
                         System.out.println("Valor Imóvel: R$" + t.getValorImovel() + " | Parcela: R$" + t.calcularPagamentoMensal());
                     }
 
+                     //Criação do arquivo TXT
+                    try {
+                        java.io.FileWriter fw = new java.io.FileWriter("financiamentos.txt");
+                        java.io.BufferedWriter bw = new java.io.BufferedWriter(fw);
+
+                        for (Casa c : listaCasas) {
+                            bw.write("Casa;" + c.getValorImovel() + ";" + c.getPrazoFinanciamentoMeses() + ";" + c.getTaxaJurosAnual() + ";" + c.getAreaConstruida());
+                            bw.newLine();
+                        }
+                        for (Apartamento ap : listaApartamentos) {
+                            bw.write("Apartamento;" + ap.getValorImovel() + ";" + ap.getPrazoFinanciamentoMeses() + ";" + ap.getTaxaJurosAnual() + ";" + ap.getVagasGaragem());
+                            bw.newLine();
+                        }
+                        for (Terreno t : listaTerrenos) {
+                            bw.write("Terreno;" + t.getValorImovel() + ";" + t.getPrazoFinanciamentoMeses() + ";" + t.getTaxaJurosAnual() + ";" + t.getTipoZoneamento());
+                            bw.newLine();
+                        }
+                        bw.close();
+                        System.out.println("\n[INFO] Dados gravados em 'financiamentos.txt' com sucesso!");
+
+                        System.out.println("\nComprovante de leitur do arquivo txt");
+                        java.io.FileReader fr = new java.io.FileReader("financiamentos.txt");
+                        java.io.BufferedReader br = new java.io.BufferedReader(fr);
+                        String linha;
+                        while ((linha = br.readLine()) != null) {
+                            System.out.println("Linha lida do arquivo: " + linha);
+                        }
+                        br.close();
+
+                    } catch (java.io.IOException e) {
+                        System.out.println("[ERRO] Falha ao manipular o arquivo de texto: " + e.getMessage());
+                    }
+
+                      //Serialização do ArrayLis
+                    try {
+                        ArrayList<Object> todasSimulacoes = new ArrayList<>();
+                        todasSimulacoes.addAll(listaCasas);
+                        todasSimulacoes.addAll(listaApartamentos);
+                        todasSimulacoes.addAll(listaTerrenos);
+
+                        java.io.FileOutputStream fos = new java.io.FileOutputStream("financiamentos.ser");
+                        java.io.ObjectOutputStream oos = new java.io.ObjectOutputStream(fos);
+                        oos.writeObject(todasSimulacoes);
+                        oos.close();
+                        System.out.println("\n[INFO] Criação de aquivo TXT foi um sucesso em 'financiamentos.ser'!");
+
+                        System.out.println("\n--- Comprovante de leitura do arquivo serializado ---");
+                        java.io.FileInputStream fis = new java.io.FileInputStream("financiamentos.ser");
+                        java.io.ObjectInputStream ois = new java.io.ObjectInputStream(fis);
+
+                        @SuppressWarnings("unchecked")
+                        ArrayList<Object> listaRecuperada = (ArrayList<Object>) ois.readObject();
+                        ois.close();
+
+                        System.out.println("Total de financiamentos deserializados com sucesso: " + listaRecuperada.size());
+
+                    } catch (Exception e) {
+                        System.out.println("[ERRO] Falhou " + e.getMessage());
+                    }
+
                     System.out.println("\nEncerrando o projeto...");
 
                     //Else
@@ -166,16 +225,15 @@ public class Main {
                     System.out.println("Opção incorreta, selecione uma opção que exista");
                 }
 
-                    //Catch
+                //Catch do menu
             } catch (ErrosExceptionFinanciamento e) {
-                System.out.println("\n[ERRO DE VALIDAÇÃO] " + e.getMessage());
+                System.out.println("\n[ERRO!!!!] " + e.getMessage());
                 opcao = 0;
             } catch (InputMismatchException e) {
-                System.out.println("\n[ERRO] Entrada Incorreta! Você digitou texto mas precisa ser um número.");
+                System.out.println("\n[ERRO!!!!] Tem que ser um número não um texto...");
                 leitor.nextLine();
                 opcao = 0;
             }
-
         }
     }
 }
