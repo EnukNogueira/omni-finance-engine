@@ -52,21 +52,6 @@ Calcula parcelas mensais com base no valor do imóvel, prazo e taxa de juros anu
 
 ---
 
-## Como executar
-
-```bash
-# Clone o repositório
-git clone https://github.com/EnukNogueira/omni-finance-engine.git
-cd omni-finance-engine
-
-# Compile e execute via IntelliJ IDEA ou linha de comando
-# Certifique-se de ter o Gson no classpath
-javac -cp gson-*.jar src/**/*.java
-java -cp .:gson-*.jar Main
-```
-
----
-
 ## Estrutura do projeto
 
 ```
@@ -86,7 +71,7 @@ src/
 
 ## Autor
 
-**Enuk Nogueira** — Desenvolvedor focado em Engenharia de Dados e Automação de Processos
+**Enuk Nogueira** — Desenvolvedor focado em Ciência de Dados e Automação de Processos
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/enuknogueira/)
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EnukNogueira)
