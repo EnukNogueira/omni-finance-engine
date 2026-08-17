@@ -1,77 +1,122 @@
 # Omni Finance Engine
 
-Sistema financeiro backend em Java que integra simulação de financiamento imobiliário e gestão de investimentos com cotações de ativos em tempo real.
+Sistema financeiro desenvolvido em Java para praticar Programação Orientada a Objetos, regras de negócio, tratamento de exceções e integração com APIs.
+
+O projeto começou como um trabalho acadêmico de POO na PUCPR e foi expandido para incluir simulação de financiamentos e consultas de cotações de ativos.
 
 ---
 
 ## Sobre o projeto
 
-O Omni Finance Engine nasceu de um trabalho acadêmico na PUCPR (Programação Orientada a Objetos em Java), mas foi expandido além do escopo original. Enquanto a proposta da disciplina pedia apenas um simulador de financiamento imobiliário, o projeto evoluiu para incluir um painel completo de investimentos com consumo de dados reais do mercado financeiro.
+O sistema possui dois módulos principais:
 
-O resultado é um sistema de linha de comando que funciona como uma carteira financeira pessoal simulada, cobrindo tanto imóveis quanto renda variável e renda fixa.
+- Simulação de financiamento imobiliário
+- Consulta e simulação de investimentos
+
+A parte de financiamento possui diferentes tipos de imóveis, cada um com suas próprias regras de cálculo.
+
+O módulo de investimentos permite consultar cotações de ações através de uma API externa e realizar projeções de renda fixa utilizando juros compostos.
 
 ---
 
 ## Funcionalidades
 
-### Simulador de Financiamento Imobiliário
+### Financiamento imobiliário
 
-Calcula parcelas mensais com base no valor do imóvel, prazo e taxa de juros anual. Cada tipo de imóvel aplica regras de negócio próprias via polimorfismo:
+- Simulação de financiamento
+- Cálculo de parcelas
+- Diferentes regras para cada tipo de imóvel
+- Validação dos dados de entrada
 
-- **Casa** — considera a área construída no cálculo
-- **Apartamento** — embute taxa de condomínio e registra vagas de garagem
-- **Terreno** — aplica acréscimo de 2% por risco de infraestrutura; aceita zoneamento comercial ou residencial
+Tipos disponíveis:
 
-### Painel de Investimentos
+- Casa
+- Apartamento
+- Terreno
 
-- **Ações** — busca a cotação atual de qualquer ativo brasileiro (ex: `PETR4`, `VALE3`) via API em tempo real
-- **Renda Fixa** — projeta patrimônio acumulado em CDB ou Tesouro com base em taxa de juros composta e prazo de aplicação
+### Investimentos
+
+- Consulta de cotação de ações
+- Integração com API externa
+- Leitura e conversão de dados JSON
+- Projeção de investimentos em renda fixa
+- Cálculo utilizando juros compostos
 
 ---
 
-## Conceitos de POO aplicados
+## Conceitos de Java aplicados
 
-| Conceito | Aplicação no projeto |
-|---|---|
-| Classes Abstratas | `Financiamento` como molde para os tipos de imóvel |
-| Herança | `Casa`, `Apartamento`, `Terreno`, `Acao`, `RendaFixa` estendem as classes base |
-| Polimorfismo | `@Override` em cada subclasse para cálculos específicos |
-| Encapsulamento | Atributos `private`/`protected` com getters e setters |
-| Packages | Separação de responsabilidades por pacotes (`imoveis`, etc.) |
-| Coleções | `ArrayList` para manipulação dinâmica de múltiplos objetos |
-| Exceções personalizadas | `ErrosExceptionFinanciamento` valida regras de negócio (ex: impede valor de imóvel negativo ou zero) |
-| Integração com API | Chamadas HTTP nativas + Gson para consumo e parsing do JSON de cotações |
+- [x] Programação Orientada a Objetos
+- [x] Classes e objetos
+- [x] Classes abstratas
+- [x] Herança
+- [x] Polimorfismo
+- [x] Encapsulamento
+- [x] Sobrescrita de métodos
+- [x] Coleções com `ArrayList`
+- [x] Tratamento de exceções
+- [x] Exceções personalizadas
+- [x] Organização em packages
+- [x] Consumo de API
+- [x] Manipulação de JSON
+
+---
+
+## Estrutura do projeto
+
+- `src/imoveis/` — classes relacionadas aos financiamentos
+- `src/investimentos/` — classes relacionadas aos investimentos
+- `src/Main.java` — execução principal da aplicação
+
+Principais classes:
+
+- `Financiamento.java`
+- `Casa.java`
+- `Apartamento.java`
+- `Terreno.java`
+- `Acao.java`
+- `RendaFixa.java`
 
 ---
 
 ## Tecnologias utilizadas
 
 - **Java 24**
-- **Google Gson** — conversão de JSON da API de cotações
-- **IntelliJ IDEA**
+- **Google Gson** — conversão dos dados JSON
+- **API de cotações** — obtenção de informações de ativos
+- **IntelliJ IDEA** — desenvolvimento
 
 ---
 
-## Estrutura do projeto
+## Como executar
 
+Clone o repositório:
+
+```bash
+git clone https://github.com/EnukNogueira/omni-finance-engine.git
+cd omni-finance-engine
 ```
-src/
-├── imoveis/
-│   ├── Financiamento.java      # Classe abstrata base
-│   ├── Casa.java
-│   ├── Apartamento.java
-│   └── Terreno.java
-├── investimentos/
-│   ├── Acao.java
-│   └── RendaFixa.java
-└── Main.java
-```
+
+Abra o projeto no IntelliJ IDEA e configure a biblioteca Gson utilizada pelo projeto.
+
+Depois, execute a classe `Main`.
+
+---
+
+## Objetivo do projeto
+
+O objetivo principal foi colocar em prática os conceitos de Programação Orientada a Objetos estudados durante a graduação e expandir o projeto além do exercício inicial proposto.
+
+O projeto também serviu para praticar integração entre uma aplicação Java e uma API externa.
 
 ---
 
 ## Autor
 
-**Enuk Nogueira** — Desenvolvedor focado em Ciência de Dados e Automação de Processos
+**Enuk Nogueira**
+
+Estudante de Análise e Desenvolvimento de Sistemas pela PUCPR, com foco em Análise de Dados e Ciência de Dados.
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/enuknogueira/)
+
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EnukNogueira)
